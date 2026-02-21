@@ -1,6 +1,6 @@
-import
+import { supabase } from "@/utils/supabase";
 async function getArtists() {
-  
+
   const { data: artists, error } = await supabase.from('artists').select('*');
   
   if (error) {

@@ -1,29 +1,9 @@
 import { supabase } from '@/utils/supabase';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-
+import { addArtist } from '@/lib/action';
 export default function AdminPage() {
-  // SERVER ACTION: Bu fonksiyon doğrudan sunucuda çalışır
-  async function addArtist(formData: FormData) {
-    'use server'; // Bu satır kritik!
-
-    const name = formData.get('name') as string;
-    const bio = formData.get('bio') as string;
-
-    // Supabase'e veriyi gönder
-    const { error } = await supabase
-      .from('artists')
-      .insert([{ name, bio }]);
-
-    if (error) {
-      console.error('Hata:', error.message);
-      return;
-    }
-
-    // Cache'i temizle ve ana sayfaya yönlendir ki yeni sanatçı hemen görünsün
-    revalidatePath('/');
-    redirect('/');
-  }
+  
 
   return (
     <main className="min-h-screen p-10 bg-gray-950 text-white">

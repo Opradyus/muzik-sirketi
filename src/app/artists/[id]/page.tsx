@@ -1,10 +1,12 @@
 import { supabase } from '@/utils/supabase';
+import { revalidatePath } from 'next/cache';
 import { notFound } from 'next/navigation';
-
+import { addAlbum } from '@/lib/action';
 // 1. Params'ı bir Promise olarak tanımlıyoruz
 interface PageProps {
   params: Promise<{ id: string }>;
 }
+
 
 export default async function ArtistDetailPage({ params }: PageProps) {
   // 2. SİHİRLİ DOKUNUŞ: Params'ın içindeki id'yi await ile "paketinden çıkarıyoruz"
@@ -59,6 +61,21 @@ export default async function ArtistDetailPage({ params }: PageProps) {
             </ul>
           </div>
         ))}
+      </div>
+      <div className="mt-12 p-6 bg-gray-900 rounded-xl border border-dashed border-gray-700">
+        <h3 className="text-xl font-bold mb-4">Bu Sanatçıya Yeni Albüm Ekle</h3>
+        <form action={addAlbum} className="flex gap-4">
+          <input type="hidden" name="artistId" value={artist.id} />
+          <input 
+            name="title" 
+            placeholder="Albüm Adı" 
+            className="flex-1 p-2 bg-gray-800 rounded border border-gray-700 outline-none"
+            required 
+          />
+          <button type="submit" className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded font-bold">
+            Ekle
+          </button>
+        </form>
       </div>
     </main>
   );

@@ -6,8 +6,6 @@ import { addAlbum } from '@/lib/action';
 interface PageProps {
   params: Promise<{ id: string }>;
 }
-
-
 export default async function ArtistDetailPage({ params }: PageProps) {
   // 2. SİHİRLİ DOKUNUŞ: Params'ın içindeki id'yi await ile "paketinden çıkarıyoruz"
   const { id } = await params;

@@ -26,7 +26,7 @@ export default function AdminPage() {
             </div>
 
             <div>
-              <label className="block text-sm text-gray-400 mb-2">Biyografi</label>
+              <label className="block text-sm text-gray-400 mb-2">Biyografi Ft. ALLAHIN OĞLU KEREM VE MÜTHİŞ RAPÇİ METZRHYME</label>
               <textarea 
                 name="bio"
                 rows={4}

@@ -10,7 +10,7 @@ export default async function Home() {
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-10">
           <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-            Müzik Şirketi
+            Müzik Şirketi Ft. ALLAHIN OĞLU KEREM VE MÜTHİŞ RAPÇİ METZRHYME
           </h1>
           {/* Admin sayfasına hızlı geçiş butonu */}
           <Link href="/admin" className="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg border border-gray-700 transition-all">
